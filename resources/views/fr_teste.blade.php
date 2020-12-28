@@ -1,21 +1,46 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.appMenu')
 
-        <title>Laravel</title>
+{{-- formulario de Login --}}
+@section('conteudo')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+   <div class="row"> 
+  
+    <div class="col-md-4 col-md-4 offset-4 col-sm-8 offset-2 col-xs-12">
+      {{-- apresentacao de erros de validacao --}}
 
-    </head>
-    <body>
-        <div>
-            <h1>menu de logim</h1>
-        </div>
+       @include('inc.erros')
 
-    </body>
+         <form method="POST" action="/usuario_executar_login">
 
-</html>    
+             {{ csrf_field() }}
+             <div class="form-group">
+               <label for="id_text_usuario">Usuario</label> 
+               <input type="text" class="form-control" id="id_text_usuario" name="text_usuario" placeholder="usuario:">   
+             </div>
+
+              <div class="form-group">
+               <label for="id_text_senha">senha</label> 
+               <input type="password" class="form-control" id="id_text_senha" name="text_senha" placeholder="senha:">   
+             </div>
+
+             <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Entrar</button>
+             </div>
+               
+             <div class="text-center margin-top-20">
+               <a href="/usuario_frm_recuperar_senha">Recuperar senha</a>
+
+             </div>  
+            {{--  
+             <div class="text-center">
+               <a href="/usuario_frm_criar_nova_conta">Criar nova conta</a>
+
+             </div> --}}
+           
+         </form>
+
+      <div>
+
+    </div>
+
+@endsection  
