@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 //use Illuminate\Routing\Route;
 
-Route::get('/contato', function() {
-    return view('fr_teste');
+Route::get('/logim', function() {
+    return view('fr_logim');
 });
 
 Route::get('/', function () {
